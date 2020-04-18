@@ -18,7 +18,7 @@ universe.protein = Protein('bala1')
 # Minimize
 minimizer = ConjugateGradientMinimizer(universe,
                                        actions=[StandardLogOutput(50)])
-minimizer(convergence = 1.e-3, steps = 10000)
+minimizer(convergence=1.e-3, steps=10000)
 
 # Set up the subspace: rigid-body translation and rotation for each residue
 subspace = RigidMotionSubspace(universe, universe.protein.residues())
@@ -37,9 +37,9 @@ for i in range(6, len(modes)):
     m1 = modes[i]
     overlap = []
     for m2 in full_modes:
-	o = m1.massWeightedDotProduct(m2) / \
-	    N.sqrt(m1.massWeightedDotProduct(m1)) / \
-	    N.sqrt(m2.massWeightedDotProduct(m2))
-	overlap.append(abs(o))
+        o = m1.massWeightedDotProduct(m2) / \
+            N.sqrt(m1.massWeightedDotProduct(m1)) / \
+            N.sqrt(m2.massWeightedDotProduct(m2))
+        overlap.append(abs(o))
     best = N.argsort(overlap)[-1]
-    print m1.frequency, full_modes[best].frequency, overlap[best]
+    print(f"{m1.frequency} {full_modes[best].frequency} {overlap[best]}")

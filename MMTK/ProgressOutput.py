@@ -118,7 +118,7 @@ class _PercentIO(_ProgressIO):
         _ProgressIO.__init__(self, *args, **kwargs)
 
     def _update(self, step):
-        print '\r{0}%'.format(100 * step // self._steps),
+        print('\r{0}%'.format(100 * step // self._steps))
         stdout.flush()
 
     def _finish(self):

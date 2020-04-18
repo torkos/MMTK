@@ -48,17 +48,16 @@ universe = OrthorhombicPeriodicUniverse(tuple(box),
 universe.protein = protein
 
 # Find the number of solvent molecules.
-print MMTK.Solvation.numberOfSolventMolecules(universe,'water',water_density),\
-      "water molecules will be added"
+print(f"{MMTK.Solvation.numberOfSolventMolecules(universe,'water',water_density)} water molecules will be added")
 
 # Scale up the universe and add the solvent molecules.
 MMTK.Solvation.addSolvent(universe, 'water', water_density)
-print "Solvent molecules have been added, now shrinking universe..."
+print("Solvent molecules have been added, now shrinking universe...")
 
 # Shrink the universe back to its original size, thereby compressing
 # the solvent to its real density.
 MMTK.Solvation.shrinkUniverse(universe, temperature, 'solvation.nc')
-print "Universe has been compressed, now equilibrating..."
+print("Universe has been compressed, now equilibrating...")
 
 # Set a better force field and add thermostat and barostat.
 #

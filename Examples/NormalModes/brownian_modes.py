@@ -28,5 +28,5 @@ modes = BrownianModes(universe, calphaFrictionConstants(universe.protein),
 # obtained from experiment. See the publication cited above for details.
 #
 for i in range(6, 16):
-    print i, 1./modes[i].inv_relaxation_time
+    print(f"{i} {1./modes[i].inv_relaxation_time}")
 

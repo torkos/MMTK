@@ -27,7 +27,7 @@ from Scientific.Visualization import VRML2; visualization_module = VRML2
 #from Scientific.Visualization import VRML; visualization_module = VRML
 #from Scientific.Visualization import VMD; visualization_module = VMD
 
-print "Loading protein file"
+print("Loading protein file")
 #This can be any name from the MMTK database, or a PDB file.
 protein = Protein('insulin')
 #Note that by default this looks for all the atoms.  Some PDB files
@@ -35,10 +35,10 @@ protein = Protein('insulin')
 #Some PDB files don't even have the positions of the side chains,
 #and MMTK will not be able to guess their locations.
 
-print "Finding centre of mass and moment of inertia"
+print("Finding centre of mass and moment of inertia")
 center, inertia = protein.centerAndMomentOfInertia()
 
-print "Creating view points"
+print("Creating view points")
 #Use the centre of mass as the centre of the picture, with the camera
 #pulled back from it.
 #
@@ -65,14 +65,14 @@ model_name = 'vdw'
 #model_name = 'tube'
 #model_name = 'ball_and_stick'
 
-print "Creating " + model_name + " graphic of Protein"
+print(f"Creating {model_name} graphic of Protein")
 #You can also specify colour for the whole molecule if you want,
 #otherwise the individual atom colours are used (Oxygen = Red,
 #Hydrogen = White, Sulphur = Yellow etc)
 graphics = protein.graphicsObjects(graphics_module = visualization_module,
                                    model = model_name)
 
-print "Creating arrows below protein"
+print("Creating arrows below protein")
 #In order to help visualise what the camera objects are doing, I
 #am adding some arrows in the x-z planes above and below the molecule.
 #
@@ -95,7 +95,7 @@ graphics.append(visualization_module.Arrow(center + Vector(0,-d,0),
                 center + Vector(-l,-d,0), 0.1, 
                 material=visualization_module.DiffuseMaterial('yellow')))
 
-print "Creating arrows above protein"
+print("Creating arrows above protein")
 graphics.append(visualization_module.Arrow(center + Vector(0,+d,0),
                 center + Vector(0,+d,l), 0.1,
                 material=visualization_module.DiffuseMaterial('red')))
@@ -121,7 +121,7 @@ graphics.append(visualization_module.Arrow(center + Vector(0,+d,0),
 #print "Viewing left of " + model_name + " model..."
 #visualization_module.Scene(graphics, cameras=[left_cam]).view()
 
-print "Viewing " + model_name + " model with all four cameras..."
+print("Viewing {model_name} model with all four cameras...")
 visualization_module.Scene(graphics, cameras=[front_cam,right_cam,back_cam,left_cam]).view()
 #Your VRML2 viewing program should let you switch between the
 #four cameras (and show you their names "Front", "Right", etc).
@@ -130,4 +130,4 @@ visualization_module.Scene(graphics, cameras=[front_cam,right_cam,back_cam,left_
 #the menu "Camera","Viewpoints" (or shortcut key F6)
 #Available here: http://home.snafu.de/hg/
 
-print "Done"
+print("Done")

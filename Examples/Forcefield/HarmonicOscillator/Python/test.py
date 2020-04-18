@@ -11,8 +11,8 @@ ff2 = HarmonicOscillatorForceField(universe.atom2, Vector(0., 1., 0.), 100.)
 universe.setForceField(ff1+ff2)
 
 e, g = universe.energyAndGradients()
-print universe.energyTerms()
-print e
+print(f"{universe.energyTerms()}")
+print(f"{e}")
 
 gradientTest(universe)
 forceConstantTest(universe)

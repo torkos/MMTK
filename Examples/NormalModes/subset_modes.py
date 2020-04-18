@@ -41,7 +41,7 @@ modes = VibrationalModes(universe, subspace=subspace)
 
 # Print frequencies
 for mode in modes:
-    print mode
+    print(f"{mode}")
 
 # Show animation of the first mode 
 modes[0].view()

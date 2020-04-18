@@ -194,21 +194,18 @@ if __name__ == '__main__':
                 mid = len(atoms)/2
                 clist = findContacts(Collection(atoms[:mid]),
                                      Collection(atoms[mid:]))
-        print len(clist), 'contacts'
+        print(f"{len(clist)} contacts")
         for c in clist[:8]:
-            print '%-64s %6.2f' % (c, c.dist/Units.Ang)
+            print(f'{c:-64s} {c.dist/Units.Ang}:6.2f')
     else:
         target = pdb_conf1.createAll()
         if sys.argv[1][:2] == '-v':
             (a, v) = target.surfaceAndVolume()
-            print 'surface area %.2f volume %.2f' \
-                  % (a/(Units.Ang**2), v/(Units.Ang**3))
+            print(f'surface area {a/(Units.Ang**2):.2f} volume {v/(Units.Ang**3):.2f}')
         elif sys.argv[1][:2] == '-a':
             smap = target.surfaceAtoms(probe_radius = 1.4*Units.Ang)
-            print len(smap.keys()),'of',len(target.atomList()),'atoms on surface'
+            print(f"{len(smap.keys())} of {len(target.atomList())} atoms on surface")
         elif sys.argv[1][:2] == '-p':
             smap = target.surfacePointsAndGradients(probe_radius = 1.4*Units.Ang)
             for (a, tup) in smap.items():
-                print '%-40.40s %6.2f %5d %5.1f %5.1f %5.1f' \
-                      % (a.fullName(), tup[0]/(Units.Ang**2), len(tup[1]),
-                         tup[2][0], tup[2][1], tup[2][2])
+                print(f'{a.fullName():-40.40s} {tup[0]/(Units.Ang**2):6.2f} {len(tup[1]):5d} {tup[2][0]:5.1f} {tup[2][1]:5.1f} {tup[2][2]:5.1f}')

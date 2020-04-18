@@ -17,9 +17,9 @@ universe.protein = Protein('bala1')
 
 # Initialize velocities
 universe.initializeVelocitiesToTemperature(50.*Units.K)
-print 'Temperature: ', universe.temperature()
-print 'Momentum: ', universe.momentum()
-print 'Angular momentum: ', universe.angularMomentum()
+print(f"Temperature: {universe.temperature()}")
+print(f"Momentum: {universe.momentum()}")
+print(f"Angular momentum: {universe.angularMomentum()}")
 
 # Create integrator
 integrator = VelocityVerletIntegrator(universe, delta_t=1.*Units.fs)
@@ -56,8 +56,8 @@ integrator(steps=100,
 trajectory.close()
 
 # Print information about the trajectory file
-print "Information about the trajectory file 'bala1.nc':"
-print trajectoryInfo('bala1.nc')
+print("Information about the trajectory file 'bala1.nc':")
+print(f"{trajectoryInfo('bala1.nc')}")
 
 # Reopen trajectory file
 trajectory = Trajectory(universe, "bala1.nc", "r")
@@ -67,7 +67,7 @@ step10 = trajectory[10]
 view(universe, step10['configuration'])
 
 # Print the kinetic energy along the trajectory
-print "Kinetic energy along trajectory:"
-print trajectory.kinetic_energy
+print("Kinetic energy along trajectory:")
+print(f"{trajectory.kinetic_energy}")
 
 trajectory.close()

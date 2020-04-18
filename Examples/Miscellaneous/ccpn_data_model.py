@@ -10,5 +10,5 @@ mol_system = project.molSystems[0]
 adapter = CCPNMolSystemAdapter(mol_system)
 objects = adapter.makeAllMolecules()
 for o in objects:
-    print o.numberOfAtoms()
-    print o.atomsWithDefinedPositions().centerOfMass()
+    print(f"{o.numberOfAtoms()}")
+    print(f"{o.atomsWithDefinedPositions().centerOfMass()}")

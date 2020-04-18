@@ -42,7 +42,7 @@ chain = PeptideChain(monomer, model='calpha')
 # rectangular box containing it:
 
 p1, p2 = chain.boundingBox()
-print "Size of a bounding box: %4.2f x %4.2f x %4.2f nm" % tuple(p2-p1)
+print("Size of a bounding box: %4.2f x %4.2f x %4.2f nm" % tuple(p2-p1))
 
 # Formalities: we define a universe and put the chain inside.
 # Then we make a copy of the configuration of the universe for later use.
@@ -67,16 +67,16 @@ transformation, rms = chain.findTransformation(monomer_configuration)
 # That's the transformation *from* the current *to* the monomer
 # configuration. Let's analyze it:
 
-print "Translation/rotation fit:"
-print "  RMS difference:", rms
+print("Translation/rotation fit:")
+print(f"  RMS difference:{rms}")
 
 translation = transformation.translation()
 rotation = transformation.rotation()
 axis, angle = rotation.axisAndAngle()
 
-print "  Rotation axis: ", axis
-print "  Rotation angle: ", angle
-print "  Translation: ", translation.displacement()
+print(f"  Rotation axis: {axis}")
+print(f"  Rotation angle: {angle}")
+print(f"  Translation: {translation.displacement()}")
 
 # Note that order is important: the rotation (around the origin) is
 # applied first, and then the translation. If you want to do it the
@@ -85,8 +85,8 @@ print "  Translation: ", translation.displacement()
 # Note also the units: distances in nanometers, angles in radians!
 # If you insist on Angstrom and degrees, you'll have to type a bit more:
 
-print "  Rotation angle in degrees: ", angle/Units.deg
-print "  Translation in Angstrom: ", translation.displacement()/Units.Ang
+print(f"  Rotation angle in degrees: {angle/Units.deg}")
+print(f"  Translation in Angstrom: {translation.displacement()/Units.Ang}")
 
 # Now we apply the transformation to the current configuration to
 # align it with the reference configuration:
@@ -140,13 +140,13 @@ chain.applyTransformation(transformation)
 
 transformation, rms = tip.findTransformation(monomer_configuration)
 
-print "Movement of the tip of the loop:"
-print "  RMS difference:", rms
+print("Movement of the tip of the loop:")
+print(f"  RMS difference:{rms}")
 
 translation = transformation.translation()
 rotation = transformation.rotation()
 axis, angle = rotation.axisAndAngle()
 
-print "  Rotation axis: ", axis
-print "  Rotation angle: ", angle
-print "  Translation: ", translation.displacement()
+print(f"  Rotation axis: {axis}")
+print(f"  Rotation angle: {angle}")
+print(f"  Translation: {translation.displacement()}")

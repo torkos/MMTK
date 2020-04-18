@@ -22,8 +22,8 @@ for r in residues:
         bcoh_sq = bcoh_sq + (a.b_coherent/Units.fm)**2
         bcoh_deut_sq = bcoh_deut_sq + (a.b_coherent_deut/Units.fm)**2
         mass = mass + a.mass()
-    print r
-    print "b_coherent = %f*fm" % sqrt(bcoh_sq)
-    print "b_incoherent = %f*fm" % binc
-    print "b_coherent_deut = %f*fm" % sqrt(bcoh_deut_sq)
-    print "b_incoherent_deut = %f*fm" % binc_deut
+    print(f"{r}")
+    print("b_coherent = %f*fm" % sqrt(bcoh_sq))
+    print("b_incoherent = %f*fm" % binc)
+    print("b_coherent_deut = %f*fm" % sqrt(bcoh_deut_sq))
+    print("b_incoherent_deut = %f*fm" % binc_deut)

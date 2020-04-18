@@ -12,4 +12,4 @@ universe.protein = Protein('bala1')
 # Print positions and charges of all atoms
 charges = universe.charges()
 for a in universe.atomIterator():
-    print a.position(), charges[a]
+    print(f"{a.position()} {charges[a]}")

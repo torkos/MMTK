@@ -68,7 +68,7 @@ while current_size > real_size:
     current_size = scale_factor*current_size
     world.setSize(current_size)
 
-    print 'Current size: ', current_size
+    print(f'Current size: {current_size}')
     stdout.flush()
 
     minimizer(steps = 100)

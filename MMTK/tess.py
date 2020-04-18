@@ -70,8 +70,8 @@ def tesselate(num_points):
 
 if __name__ == '__main__':
     r = tesselate(1026)
-    print len(r), 'points'
+    print(f"{len(r)} points")
     if len(r) < 1000:
         for pt in r:
-            print '%6.1f %6.1f %6.1f' % (pt[0], pt[1], pt[2])
+            print(f"{pt[0]:6.1f} {pt[1]:6.1f} {pt[2]:6.1f}")
 

@@ -30,11 +30,11 @@ for c in conf.peptide_chains:
         try:
             pdb_atom = atom_map[atom]
         except KeyError:
-            print atom, " not in PDB file"
+            print(f"{atom}"+ " not in PDB file")
             continue
         b_factor = pdb_atom.properties['temperature_factor'] * Units.Ang**2
         try:
             u_trace = pdb_atom.properties['u'].trace()/3. * Units.Ang**2
         except KeyError:
             u_trace = "[no ANISOU record]"
-        print atom, b_factor/(8*N.pi**2), u_trace
+        print(f"{atom} {b_factor/(8*N.pi**2)} {u_trace}")

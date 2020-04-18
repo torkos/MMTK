@@ -313,7 +313,7 @@ def readURL(filename):
             file = open(filename)
     except IOError, details:
         if details[0] == 2:
-            print "File " + filename + " not found."
+            print(f"File {filename}  not found.")
         raise IOError(details)
     data = file.read()
     file.close()

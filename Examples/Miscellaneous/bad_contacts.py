@@ -35,5 +35,5 @@ atoms = sorted(universe.atomList(),
 
 # Print the five atoms with the highest forces acting on them
 for a in atoms[:5]:
-    print a, gradient_lengths[a]
+    print(f"{a} {gradient_lengths[a]}")
 

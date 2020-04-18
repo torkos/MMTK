@@ -13,9 +13,10 @@ universe.protein = Protein('bala1')
 
 # Initialize velocities
 universe.initializeVelocitiesToTemperature(50.*Units.K)
-print 'Temperature: ', universe.temperature()
-print 'Momentum: ', universe.momentum()
-print 'Angular momentum: ', universe.angularMomentum()
+print(f'Temperature: {universe.temperature()}')
+print(f'Momentum: {universe.momentum()}')
+print(f'Angular momentum: {universe.angularMomentum()}')
+
 
 # Create integrator
 integrator = VelocityVerletIntegrator(universe, delta_t=1.*Units.fs)
@@ -50,15 +51,15 @@ integrator(steps=100,
                       StandardLogOutput(10)])
 trajectory.close()
 
-print "Starting background thread..."
+print("Starting background thread...")
 thread = integrator(steps = 10000, background = True,
                     actions = [TranslationRemover(0, None, 50),
                                RotationRemover(0, None, 50)])
-print "Monitoring progress:"
+print("Monitoring progress:")
 while thread.is_alive():
     state = thread.copyState()
     if state is not None:
-        print "CPU time:", time.clock()
-        print "Simulation time:", state['time']
-        print "Potential energy:", state['potential_energy']
+        print(f"CPU time:{time.clock()}")
+        print(f"Simulation time:{state['time']}")
+        print(f"Potential energy:{state['potential_energy']}")
     time.sleep(0.1)

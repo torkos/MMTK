@@ -30,12 +30,12 @@ def gradientTest(universe, atoms = None, delta = 0.0001):
     :type delta: float
     """
     e0, grad = universe.energyAndGradients()
-    print 'Energy: ', e0
+    print(f"Energy: {e0}")
     if atoms is None:
         atoms = universe.atomList()
     for a in atoms:
-        print a
-        print grad[a]
+        print(f"{a}")
+        print(f"{grad[a]}")
         num_grad = []
         for v in [ex, ey, ez]:
             x = a.position()
@@ -45,7 +45,7 @@ def gradientTest(universe, atoms = None, delta = 0.0001):
             eminus = universe.energy()
             a.setPosition(x)
             num_grad.append(0.5*(eplus-eminus)/delta)
-        print Vector(num_grad)
+        print(f"{Vector(num_grad)}")
 
 #
 # Check consistency of gradients and force constants.
@@ -68,8 +68,8 @@ def forceConstantTest(universe, atoms = None, delta = 0.0001):
         atoms = universe.atomList()
     for a1, a2 in itertools.chain(itertools.izip(atoms, atoms),
                                   Utility.pairs(atoms)):
-        print a1, a2
-        print fc[a1, a2]
+        print(f"{a1} {a2}")
+        print(f"{fc[a1,a2]}")
         num_fc = []
         for v in [ex, ey, ez]:
             x = a1.position()
@@ -79,7 +79,7 @@ def forceConstantTest(universe, atoms = None, delta = 0.0001):
             e_minus, grad_minus = universe.energyAndGradients()
             a1.setPosition(x)
             num_fc.append(0.5*(grad_plus[a2]-grad_minus[a2])/delta)
-        print N.array(map(lambda a: a.array, num_fc))
+        print(f"{N.array(map(lambda a: a.array, num_fc))}")
 
 #
 # Check consistency of gradients and virial
@@ -96,7 +96,7 @@ def virialTest(universe):
     e, grad = ev(gradients = True)
     virial = ev.lastVirial()
     conf = universe.configuration()
-    print virial, -(conf*grad).sumOverParticles()
+    print(f"{virial} {-(conf*grad).sumOverParticles()}")
 
 if __name__ == '__main__':
 

@@ -75,4 +75,4 @@ vector_field.graphicsObjects(graphics_module = graphics)
 
 # Print the arrow coordinates
 for point1, point2 in graphics.arrows:
-    print point1, point2
+    print(f"{point1} {point2}")

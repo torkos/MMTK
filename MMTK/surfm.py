@@ -133,9 +133,7 @@ def _xlate_results(points1, points_unit, point_density, tot_rad, pos1,
                    ret_fmt, cent):
     area = 4*math.pi*(tot_rad**2)*len(points1)/point_density
     if 0:
-        print 'area %6.1f %5.1f %5.3f' \
-          % (area/(Units.Ang**2), tot_rad/Units.Ang,
-             len(points1)/float(point_density))
+        print(f'area {area/(Units.Ang**2):6.1f} {tot_rad/Units.Ang:5.1f} {len(points1)/float(point_density):5.3f}')
     if ret_fmt >= 2:
         sumx = 0
         sumy = 0

@@ -277,5 +277,5 @@ if __name__ == '__main__':
     constraints = None
 
     f = ChargeFit(system, points, constraints)
-    print f[a1], a1.charge
-    print f[a2], a2.charge
+    print(f"{f[a1]} {a1.charge}")
+    print(f"{f[a2]} {a2.charge}")

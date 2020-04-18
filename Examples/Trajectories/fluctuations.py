@@ -41,4 +41,4 @@ for protein in universe.objectList(Protein):
 
 # Average over the C-alpha atoms
 calpha_mask = calphas.booleanMask()
-print (fluctuations*calpha_mask).sumOverParticles()/calphas.numberOfAtoms()
+print(f"{(fluctuations*calpha_mask).sumOverParticles()/calphas.numberOfAtoms()}")

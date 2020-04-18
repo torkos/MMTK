@@ -25,11 +25,11 @@ snapshot = SnapshotGenerator(universe,
 # Perform sidechain rotations and write the configurations
 snapshot()
 for residue in residues:
-    print residue
+    print(f"{residue}")
     chi = residue.chiAngle()
     for angle in N.arange(-N.pi, N.pi, N.pi/10.):
         chi.setValue(angle)
-        print angle
+        print(f"{angle}")
         snapshot()
 
 # Close trajectory

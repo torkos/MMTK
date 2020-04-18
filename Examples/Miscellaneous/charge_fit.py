@@ -33,4 +33,4 @@ constraints = [TotalChargeConstraint(system, 0.)]
 # Perform the fit and print the two fitted charges. They are not equal
 # to the input charges due to the neutrality constraint.
 fit = ChargeFit(system, points, constraints)
-print fit[a1], fit[a2]
+print(f"{fit[a1]} {fit[a2]}")

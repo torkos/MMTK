@@ -337,7 +337,7 @@ class GroupOfAtoms(object):
             elif repr == 'IIIl':
                 seq[0:2] = N.array([seq[1], seq[0]])
             elif repr != 'IIIr':
-                print 'unknown representation'
+                print('unknown representation')
             diag.array = N.take(diag.array, seq)                
         return Transformation.Rotation(diag)*Transformation.Translation(-cm)
 

@@ -23,7 +23,7 @@ modes = VibrationalModes(universe)
 
 # Print frequencies
 for mode in modes:
-    print mode
+    print(f"{mode}")
 
 # Show animation of the first non-trivial mode 
 view(modes[6])

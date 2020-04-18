@@ -228,11 +228,10 @@ def genericViewConfiguration(object, configuration = None, format = 'pdb',
             #Looking for error 31, SE_ERR_NOASSOC, in particular
             file_type = os.path.splitext(filename)[1]
             if error_number[0]==31:
-                print ('There is no program associated with .%s files,' + \
-                       ' please install a suitable viewer') % file_type
+                print(f'There is no program associated with .{file_type} files, please install a suitable viewer')
             else:
-                print 'Unexpected error attempting to open .%s file' % file_type
-                print sys.exc_value
+                print(f'Unexpected error attempting to open .{file_type} file')
+                print(f"{sys.exc_value}")
     elif viewer.has_key(viewer_format):
         # On Unix-like systems, give priority to a  user-specified viewer.
         object.writeToFile(filename, configuration, format)

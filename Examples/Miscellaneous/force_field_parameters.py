@@ -48,24 +48,24 @@ documentation = {
 # Print the parameters in a readable format
 for p_type in parameters:
     p = parameters[p_type]
-    print p_type
-    print len(p_type)*'-'
-    print documentation[p_type]
+    print(f"{p_type}")
+    print(f"{len(p_type)*'-'}")
+    print(f"{documentation[p_type]}")
     if isinstance(p, list):
-        print "["
+        print("[")
         for data in p:
-            print " ", data, ","
-        print " ]"
+            print(f" {data},")
+        print(" ]")
     elif isinstance(p, dict):
-        print "{"
+        print("{")
         for key, value in p.items():
             s = repr(value)
             if len(key) + len(s) < 75:
-                print " %s: %s," % (key, value)
+                print(f" {key}: {value},")
             else:
-                print " %s:" % key
-                print "   %s," % value
-        print "}"
+                print(" {key}:")
+                print("   {value},")
+        print("}")
     else:
-        print p
-    print
+        print(f"{p}")
+    print("")

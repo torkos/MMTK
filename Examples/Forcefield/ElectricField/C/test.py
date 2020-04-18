@@ -12,9 +12,9 @@ universe.setForceField(ElectricField(0.5*(Units.V/Units.m)
                                      * Vector(0., 0., 1.),
                                      'test_charge'))
 
-print universe.energyTerms()
+print(f"{universe.energyTerms()}")
 e, g = universe.energyAndGradients()
-print g[universe.atom1]
-print g[universe.atom2]
+print(f"{g[universe.atom1]}")
+print(f"{g[universe.atom2]}")
 
 gradientTest(universe)

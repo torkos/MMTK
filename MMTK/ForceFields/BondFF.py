@@ -224,7 +224,7 @@ if __name__ == '__main__':
     from MMTK.NormalModes import NormalModes
     world = InfiniteUniverse(HarmonicForceField(bonds=1,angles=1,dihedrals=1))
     world.protein = Protein('bala1')
-    print world.energy()
+    print(f"{world.energy()}")
     modes = NormalModes(world)
     for m in modes:
-        print m
+        print(f"{m}")

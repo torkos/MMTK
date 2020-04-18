@@ -28,7 +28,7 @@ universe.protein = Protein('insulin.pdb', model='calpha')
 # Find a reasonable basis set size and cutoff
 nbasis = max(10, universe.numberOfAtoms()/5)
 cutoff, nbasis = estimateCutoff(universe, nbasis)
-print "Calculating %d low-frequency modes." % nbasis
+print(f"Calculating {nbasis} low-frequency modes.")
 
 if cutoff is None:
     # Do full normal mode calculation

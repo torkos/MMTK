@@ -40,7 +40,7 @@ class TypeClone(Database.ChemicalObjectType):
 	    filename = filename_converter(self._filename, self.class_name)
 	    filename = Database.DatabasePath(filename, 'Output')
 	    file = open(filename, 'w')
-	    print '*** File ' + filename
+	    print(f'*** File {filename}')
 	    dict = self.attributes()
 	    try:
 		atoms = copy.copy(dict['atoms'])
@@ -344,10 +344,10 @@ def markNonpolar(group):
     for b in group.bonds:
 	if b.a1.symbol == 'C' and b.a2.symbol == 'H':
 	    b.a2.delete = 1
-	    print b.a2.name
+	    print(b.a2.name)
 	if b.a1.symbol == 'H' and b.a2.symbol == 'C':
 	    b.a1.delete = 1
-	    print b.a1.name
+	    print(b.a1.name)
 
 for name in residue_names:
     group_types.findType(name)
@@ -362,7 +362,7 @@ def newname(name):
     return name[-1]+name[:-1]
 
 for t in group_types.types.values():
-    print t.name
+    print(t.name)
     if hasattr(t, 'pdbmap'):
 	try:
 	    pdbalt = t.pdb_alternative
@@ -373,7 +373,7 @@ for t in group_types.types.values():
 		pdbalt[n1] = newname(n2)
 	pdbdict = t.pdbmap[0][1]
 	for name, object in pdbdict.items():
-	    print name
+	    print(name)
 	    if numberedHydrogen(name):
 		new = newname(name)
 		del pdbdict[name]

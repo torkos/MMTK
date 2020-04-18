@@ -176,6 +176,6 @@ for filename in groups:
             vars.add(var_name)
     if 'amber_atom_type' in vars \
             and 'amber12_atom_type' not in vars:
-        print filename
+        print(filename)
         with file(filename, 'a') as f:
             f.write("amber12_atom_type = amber_atom_type\n")

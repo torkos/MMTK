@@ -43,7 +43,7 @@ try:
 except ImportError:
     scientific_ok = False
 if not scientific_ok:
-    print "MMTK needs ScientificPython 2.6 or higher"
+    print("MMTK needs ScientificPython 2.6 or higher")
     raise SystemExit
 
 compile_args = []
@@ -225,7 +225,7 @@ if sphinx:
             try:
                 sphinx.setup_command.BuildDoc.run(self)
             except UnicodeDecodeError:
-                print >>sys.stderr, "ERROR: unable to build documentation because Sphinx do not handle source path with non-ASCII characters. Please try to move the source package to another location (path with *only* ASCII characters)."            
+                print("ERROR: unable to build documentation because Sphinx do not handle source path with non-ASCII characters. Please try to move the source package to another location (path with *only* ASCII characters).",file=sys.stderr)
             sys.path.pop(0)
 
     cmdclass['build_sphinx'] = BuildDoc

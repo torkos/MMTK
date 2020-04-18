@@ -53,7 +53,7 @@ universe[0].translateBy(Vector(1., 0., 0.))
 universe[1].translateBy(Vector(0., 1., 0.))
 
 # Print energy terms
-print universe.energyTerms()
+print(f"{universe.energyTerms()"}
 
 # Write the factory to an XML file
 factory.writeXML(file('water_factory.xml', 'w'))
